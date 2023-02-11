@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<h1>ALL DATA</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>email</th>
+    <th>action</th>
+    
+  </tr>
+  {% for u in user%}
+  <tr>
+    <td>{{u.name}}</td>
+    <td>{{u.email}}</td>
+    <td>
+    <a href="/delete/{{u.id}}">delete</a></td>
+    <td>
+    <a href="/update/{{u.id}}">Update</a></td>
+  </tr>
+  {% endfor%}
+</table>
+
+</body>
+</html>
+

@@ -1,0 +1,425 @@
+    <!-- Fontawesome -->
+   <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+       <style>
+        /* Base reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* box-sizing and font sizing */
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+        
+        html {
+            box-sizing: border-box;
+            font-size: 62.5%;
+            scroll-behavior: smooth;
+        }
+        
+        /* 1200px / 16px = 75em */
+        @media (max-width: 75em) {
+            html {
+                font-size: 60%;
+            }
+        }
+        
+        /* 980px / 16px = 61.25em */
+        @media (max-width: 61.25em) {
+            html {
+                font-size: 58%;
+            }
+        }
+        
+        /* 460px / 16px = 28.75em */
+        @media (max-width: 28.75em) {
+            html {
+                font-size: 55%;
+            }
+        }
+        
+        body {
+            font-size: 1.8rem; /* 18px */
+            font-weight: 400;
+            line-height: 1.4;
+            color: #f0f0f0;
+        }
+        
+        h1,
+        h2 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 6rem;
+        }
+        
+        h2 {
+            font-size: 4.2rem;
+        }
+        
+        ul {
+            list-style: none;
+            margin-bottom: 0rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #f0f0f0;
+        }
+        
+        img {
+            display: block;
+            width: 100%;
+        }
+        
+        /* nav */
+        .nav {
+            display: flex;
+            justify-content: flex-end;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #be3144;
+            z-index: 10;
+        }
+        
+        .nav-list {
+            display: flex;
+            margin-right: 2rem;
+        }
+        
+        @media (max-width: 28.75em) {
+            .nav {
+                justify-content: center;
+            }
+        
+            .nav-list {
+                margin: 0 1rem;
+            }
+        }
+        
+        .nav-list a {
+            display: block;
+            font-size: 2.2rem;
+            padding: 2rem;
+        }
+        
+        .nav-list a:hover {
+            background: #45567d;
+        }
+        
+        /* Welcome section */
+        #welcome-section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-color: #000;
+            background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+        }
+        
+        #welcome-section > p {
+            font-size: 3rem;
+            font-weight: 200;
+            font-style: italic;
+            color: #be3144;
+        }
+        
+        /* Projects section */
+        .projects-section{
+            text-align: center;
+            padding: 10rem 2rem;
+            background-color: #45567d;
+        }
+        
+        .projects-section-header{
+            max-width: 640px;
+            margin: 0 auto 6rem auto;
+            border-bottom: 0.2rem solid #f0f0f0;
+        }
+        
+        @media (max-width: 28.75em) {
+            .projects-section-header {
+                font-size: 4rem;
+            }
+        }
+        
+        /* "Automagic" image grid using no media queries */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-gap: 4rem;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            margin-bottom: 6rem;
+        }
+        
+        @media (max-width: 30.625em) {
+            .projects-section {
+                padding: 6rem 1rem;
+            }
+        
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .project {
+            background: #303841;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            border-radius: 2px;
+        }
+        
+        .code {
+            color: #303841;
+            transition: color 0.3s ease-out;
+        }
+        
+        .project:hover .code {
+            color: #ff7f50;
+        }
+        
+        .project-image {
+            height: calc(100% - 6.8rem);
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .project-title {
+            font-size: 2rem;
+            padding: 2rem 0.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 2px;
+        }
+        
+        .btn-show-all {
+            font-size: 2rem;
+            background: #303841;
+            transition: background 0.3s ease-out;
+            color: white;
+        }
+        
+        .btn-show-all:hover {
+            background: #be3144;
+        }
+        
+        .btn-show-all:hover > i {
+            transform: translateX(2px);
+        }
+        
+        .btn-show-all > i {
+            margin-left: 10px;
+            transform: translateX(0);
+            transition: transform 0.3s ease-out;
+        }
+        
+        .myDimension{
+            font-size: x-large;
+        }
+        
+        .dimensionIcon{
+            font-size: -webkit-xxx-large;
+        }
+        
+        
+        /* Contact section */
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: 80vh;
+            padding: 0 2rem;
+            background: #303841;
+        }
+        
+        .contact-section-header > h2 {
+            font-size: 6rem;
+        }
+        
+        @media (max-width: 28.75em) {
+            .contact-section-header > h2 {
+                font-size: 4rem;
+            }
+        }
+        
+        .contact-section-header > p {
+            font-style: italic;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 980px;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-details {
+            font-size: 2.4rem;
+            text-shadow: 2px 2px 1px #1f1f1f;
+            transition: transform 0.3s ease-out;
+            color:white;
+        }
+        
+        .contact-details:hover {
+            transform: translateY(8px);
+        }
+        
+          /* Footer */
+        footer {
+            font-weight: 300;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 2rem;
+            background: #303841;
+            border-top: 4px solid #be3144;
+        }
+        
+        footer > p {
+            margin: 1rem;
+            font-size: x-large;
+        }
+        
+        footer > p > a {
+            font-size: 24px;
+        }
+        footer > p > a:hover{
+            color:white !important;
+        }
+        
+        @media (max-width: 28.75em) {
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+    </head>
+ <!-- NAVBAR -->
+    <nav id="navbar" class="nav">
+        <ul class="nav-list">
+            <li>
+                <a href="#welcome-section">About</a>
+            </li>
+            <li>
+                <a href="#projects">Work</a>
+            </li>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    
+
+    <!-- welcome-section -->
+    <section id="welcome-section">
+        <h1>I am Salvatore Bonaccorso</h1>
+        <p>a front-end web developer</p>
+    </section>
+
+    <!-- projects -->
+    <section id="projects" class="projects-section">
+        <h2 class="projects-section-header">These are some of my projects</h2>
+
+        <div class="projects-grid">
+            <!-- 1 Project "Product Landing Page"-->
+            <a href="https://codepen.io/salvatorebonaccorso/full/OJVNago" target="_blank" class="project project-tile">
+                <img class="project-image"
+                    src="https://pbs.twimg.com/card_img/1229412017670324225/J1hEdwlr?format=png&name=small"
+                    alt="project" />
+                <p class="project-title">
+                    Product Landing Page
+                </p>
+            </a>
+            <!-- 2 Project "Reaction tester"-->
+            <a href="https://codepen.io/salvatorebonaccorso/full/oNXLeGM" target="_blank" class="project project-tile">
+                <img class="project-image" src="https://pbs.twimg.com/card_img/1229786913344753671/-XFjtnD3?format=png&name=small" alt="project" />
+                <p class="project-title">
+                    Reaction tester
+                </p>
+            </a>
+            <!-- 3 Project "Tribute Page"-->
+            <a href="https://codepen.io/salvatorebonaccorso/full/oNgKoNg" target="_blank" class="project project-tile">
+                <img class="project-image"
+                    src="https://pbs.twimg.com/card_img/1229734850015330305/PSw8gfQs?format=png&name=small"
+                    alt="project" />
+                <p class="project-title">
+                    Tribute Page
+                </p>
+            </a>
+            <!-- 4 Project "Italians Survey Form"-->
+            <a href="https://codepen.io/salvatorebonaccorso/full/MWwyEGL" target="_blank" class="project project-tile">
+                <img class="project-image"
+                    src="https://pbs.twimg.com/card_img/1229733672980447232/RhEpTGvw?format=png&name=small"
+                    alt="project" />
+                <p class="project-title">
+                    Italians Survey Form
+                </p>
+            </a>
+            <!-- 5 Project "Technical Documentation Page"-->
+            <a href="https://codepen.io/salvatorebonaccorso/full/GRJZazE" target="_blank" class="project project-tile">
+                <img class="project-image"
+                    src="https://pbs.twimg.com/card_img/1229735734699003905/yjw_3boW?format=png&name=small"
+                    alt="project" />
+                <p class="project-title">
+                    Technical Documentation Page
+                </p>
+            </a>
+ <!-- 6 Project "Animation ball"-->
+            <a href="https://codepen.io/salvatorebonaccorso/full/YzXWrLw" target="_blank" class="project project-tile">
+                <img class="project-image" src="https://pbs.twimg.com/card_img/1229793180154986496/bIPUq2jb?format=png&name=small" alt="project" />
+                <p class="project-title">
+                    Animation ball
+                </p>
+            </a>
+        </div>
+
+        <a href="https://codepen.io/salvatorebonaccorso" class="btn btn-show-all" target="_blank">Show all<i
+                class="fas fa-chevron-right myDimension"></i></a>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <div class="contact-section-header">
+            <h2>Let's work together...</h2>
+        </div>
+        <div class="contact-links">
+            <a id="profile-link" href="https://github.com/SalvatoreBonaccorso" target="_blank"
+                class="btn contact-details"><i class="fab fa-github dimensionIcon"></i> GitHub</a>
+            <a href="https://twitter.com/BonaccorsoSir" target="_blank" class="btn contact-details"><i
+                    class="fab fa-twitter dimensionIcon"></i> Twitter</a>
+            <a href="mailto:salvo.bonaccorso89@gmail.com" class="btn contact-details"><i
+                    class="fas fa-at dimensionIcon"></i> Send a mail</a>
+            <a href="tel:+3333333333" class="btn contact-details"><i class="fas fa-mobile-alt dimensionIcon"></i> Call
+                me</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy;
+            <a href="https://www.linkedin.com/in/salvatorebonaccorso/" target="_blank">2020 Salvatore Bonaccorso</a>
+        </p>
+    </footer>
